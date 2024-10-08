@@ -1,3 +1,9 @@
+/*Create a variable to track the list of todo items
+Create the addItem function that:
+*Gets the input from "item"
+Adds it to the list of todo items
+Updates the "list" ul tag to show all the items currently in the list
+- Each item should be shown added as a li tag in the string ("<li>" + item + "</li>" or `<li>${item}</li>`)*/
 var todoItems = [];
 function addItem() {
   var item = document.getElementById("item").value;
@@ -17,6 +23,8 @@ function addItem() {
     document.getElementById("item").value = "";
   }
 }
+/*Create the summarizeList function that outputs the following to the summary p tag - these lines should be split with br tags ("<br />")
+*/
 function summarizeList() {
   var summary = document.getElementById("summary");
 
