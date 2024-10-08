@@ -1,5 +1,4 @@
 var todoItems = [];
-
 function addItem() {
   var item = document.getElementById("item").value;
 
@@ -18,7 +17,6 @@ function addItem() {
     document.getElementById("item").value = "";
   }
 }
-
 function summarizeList() {
   var summary = document.getElementById("summary");
 
