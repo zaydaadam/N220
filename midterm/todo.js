@@ -37,32 +37,3 @@ function summarizeList() {
     summary.innerHTML = "No items in the list.";
   }
 }
-
-
-
-
-
-  
-
-
-
-function summarizeList() {
-  var summary = document.getElementById("summary");
-
-  // Check if there are items in the list
-  if (todoItems.length > 0) {
-    // Get total, first, and last items
-    var totalItems = todoItems.length;
-    var firstItem = todoItems[0];
-    var lastItem = todoItems[todoItems.length - 1];
-
-    // Create the summary text with <br> for line breaks
-    summary.innerHTML =
-      "Total Items: " + totalItems + "<br />" +
-      "First Item: " + firstItem + "<br />" +
-      "Last Item: " + lastItem;
-  } else {
-    // If no items, clear the summary
-    summary.innerHTML = "No items in the list.";
-  }
-}
