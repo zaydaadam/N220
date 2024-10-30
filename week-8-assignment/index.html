@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bleach Storyline</title>
+</head>
+
+<body>
+    <div id="story">
+        <p id="description"></p>
+    </div>
+
+    <script>
+        function startStory() {
+            let choice1 = prompt(
+                "You sense a powerful Monster nearby. What do you do? \n1. Head to Karakura Town \n2. Travel to Hueco Mundo"
+            );
+
+            if (choice1 === "1") {
+                karakuraTown();
+            } else if (choice1 === "2") {
+                huecoMundo();
+            } else {
+                alert("Wrong choice, please enter 1 or 2.");
+                startStory();
+            }
+        }
+
+        function karakuraTown() {
+            let choice2 = prompt(
+                "You head to Karakura Town, where you feel a spiritual pressure. \n1. Meet with Ichigo \n2. Investigate alone"
+            );
+
+            if (choice2 === "1") {
+                meetWithIchigo();
+            } else if (choice2 === "2") {
+                investigateAlone();
+            } else {
+                alert("Wrong choice, please enter 1 or 2.");
+                karakuraTown();
+            }
+        }
+
+        function investigateAlone() {
+            let choice = prompt(
+                "You investigate alone, but the Monster appears! \n1. Run \n2. Fight"
+            );
+            if (choice === "1") {
+                alert("You try to run, but the Monster catches you. You LOSE.");
+            } else if (choice === "2") {
+                pickSwordAndFight("investigate");
+            } else {
+                alert("Invalid choice. Please select 1 or 2.");
+                investigateAlone();
+            }
+        }
+
+        function meetWithIchigo() {
+            let choice3 = prompt(
+                "You meet with Ichigo, and together you find the Monster. \n1. Fight the Monster together \n2. Make a plan"
+            );
+
+            if (choice3 === "1") {
+                pickSwordAndFight("ichigo");
+            } else if (choice3 === "2") {
+                alert("You decide to make a plan with Ichigo and ended the story.");
+            } else {
+                alert("Wrong choice, please enter 1 or 2.");
+                meetWithIchigo();
+            }
+        }
+
+        function huecoMundo() {
+            let choice5 = prompt(
+                "You travel to Hueco Mundo, where an evil villain is gathering power. \n1. Sneak into the base \n2. Charge into battle"
+            );
+
+            if (choice5 === "1") {
+                alert("You and Ichigo sneak into the base.");
+                fightOrRun();
+            } else if (choice5 === "2") {
+                alert("The rogue Arrancar appears, prepared for a fight.");
+                fightOrRun();
+            } else {
+                alert("Wrong choice, please enter 1 or 2.");
+                huecoMundo();
+            }
+        }
+
+        function fightOrRun() {
+            let choice6 = prompt("A monster suddenly appears! \n1. Fight \n2. Run");
+
+            if (choice6 === "1") {
+                pickSwordAndFight("hueco");
+            } else if (choice6 === "2") {
+                alert("You ran away. The monster chases you down. You LOSE.");
+            } else {
+                alert("Wrong choice, please enter 1 or 2.");
+                fightOrRun();
+            }
+        }
+
+        function pickSwordAndFight(scenario) {
+            let sword = prompt("Before the fight, you must choose a sword: \n1. FullBring Sword\n2. Zanpakuto Sword");
+
+            if (sword === "2") {
+                if (scenario === "ichigo") {
+                    alert("You and Ichigo fight bravely with the Zanpakuto Sword and defeat the monster. You WIN.");
+                } else {
+                    alert("You picked the FullBring Sword and fought bravely. You WIN the fight.");
+                }
+            } else if (sword === "1") {
+                alert("You picked the FullBring Sword, and it shatters in battle. You LOSE.");
+            } else {
+                alert("Invalid choice, please select 1 or 2.");
+                pickSwordAndFight(scenario);
+            }
+        }
+
+        startStory();
+    </script>
+</body>
+
+</html>
