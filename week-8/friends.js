@@ -1,40 +1,85 @@
-// reference variables
-const friendNameInput = document.getElementById("friendName");
-const friendsList = document.getElementById("friendsList");
-//variable to track my friends
-const myFriends =[];
-// Function for adding friend
-function addFriend(){
-    // get the name the user typed in
-    const nameValue = friendNameInput.value;
-    //add friend to myFriends list
-    myFriends.push(nameValue);
-    //add the name to the friends list
-    friendsList.innerHTML += `<li>${nameValue}</li> <button onclick="removeFriend('${nameValue}')">X</button>`;
-    //clear the name the user typed
-    friendNameInput.value = "";
-}
-function removeFriend(friendName){
-    // Use variable to track index of friend to reove
-    let friendIndex
-    console.log(friendName);
-    // loop through current friends to find the friendName
-    for(let i = 0; i < myFriends.length; i++){
-        if(myFriends[i] === friendName){
-            friendIndex = i;
-        }
-    }
-    console.log(friendIndex)
-//remove the person from the list
-    myFriends.splice(friendIndex, 1);
-    console.log(myFriends)
+// Reference variables
+const friendNameInputRef = document.getElementById("friendName");
+const friendsListRef = document.getElementById("friendsList");
 
+// Variable to track my friends
+const myFriends = [];
+
+// Function for adding friend
+function addFriend() {
+  // get the name the user typed in
+  const nameValue = friendNameInputRef.value;
+
+  // add friend to myFriends list
+  myFriends.push({ name: nameValue, color: "black" });
+
+  showFriends();
+
+  // clear the name the user typed
+  friendNameInputRef.value = "";
 }
+
+function removeFriend(friendIndex) {
+  // remove the person from the list
+  myFriends.splice(friendIndex, 1);
+
+  showFriends();
+}
+
 // function to loop through myFriends and show 'em on the page
-function showFriends(){
-    friendsListRef.innerHTML = "";
-    myFriends.forEach(function (friendName){
+function showFriends() {
+  // clear pages old friends list
+  friendsListRef.innerHTML = "";
+
+  // loop through friends
+  myFriends.forEach(function (friend, friendIndex) {
+    // add the name to the friends list
+    friendsListRef.innerHTML += `<li>
+    <span style="color: ${friend.color}">${friend.name}</span>
+    <button onclick="removeFriend(${friendIndex})">X</button>
+    <button onclick="moveFriend(${friendIndex}, true)">&#8593;</button>
+    <button onclick="moveFriend(${friendIndex}, false)">&#8595;</button>
     
-    friendsList.innerHTML += `<li>${friendName}</li> <button onclick="removeFriend('${friendName}')">X</button>`;
-});
+    <input 
+        type="color" 
+        name="friendTextColor${friendIndex}"
+        id="friendTextColor${friendIndex}"
+        onchange="changeFriendTextColor(${friendIndex}, event.currentTarget)"
+    />
+    
+ </li>`;
+  });
+}
+
+function changeFriendTextColor(friendIndex, inputRef) {
+  const friendName = myFriends[friendIndex].name;
+  myFriends.splice(friendIndex, 1, { name: friendName, color: inputRef.value });
+
+  showFriends();
+}
+
+// function to clear list of friends
+function clearList() {
+  myFriends.splice(0, myFriends.length);
+
+  showFriends();
+}
+
+// function to move friends ranking
+function moveFriend(friendIndex, isMovingUp) {
+  let friendNewIndex;
+
+  if (isMovingUp) {
+    friendNewIndex = friendIndex - 1;
+  } else {
+    friendNewIndex = friendIndex + 1;
+  }
+
+  const friendName = myFriends[friendIndex].name;
+  // remove friend from old space
+  myFriends.splice(friendIndex, 1);
+  // add friend to new space
+  myFriends.splice(friendNewIndex, 0, { name: friendName, color: "black" });
+
+  showFriends();
 }

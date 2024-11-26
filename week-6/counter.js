@@ -1,20 +1,3 @@
-let currentCount = 0;
-function addCount()
-{
-    currentCount++;
-    document.querySelector ("#counter").innerHTML = currentCount;
-}
-function showCurrentCount()
-{
-    document.querySelector ("#counter").innerHTML = currentCount;
-}
-showCurrentCount();
-
-function addCount() {
-    currentCount++;
-    showCurrentCount();
-}
-
 /*
 1. Create variable tracking currentCount
 
@@ -22,7 +5,7 @@ function addCount() {
 
 */
 
-//let currentCount = 0;
+let currentCount = 0;
 
 function showCurrentCount() {
   document.querySelector("#counter").innerHTML = currentCount;
