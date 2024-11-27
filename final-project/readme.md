@@ -5,9 +5,24 @@
 [https://zaydaadam.github.io/N220/final-project](https://zaydaadam.github.io/N220/final-project)
 
 ---
+### **How It Works**
 
+1. **Login Process**:
+   - The user enters a username and password.
+   - If the credentials meet the validation criteria, the user is logged in and redirected to the Main Page.
+
+2. **Main Page Features**:
+   - Personalized welcome message.
+   - Task management tools (add, remove, edit, mark as complete).
+   - Logout functionality.
+
+3. **Task Management**:
+   - Each user can add, modify, and delete their tasks.
+   - Tasks are tied to the logged-in user, ensuring task separation between users.
+
+---
 ## Major Features
-
+```md
 ### **Login Form**
 
 - **DOM References**:
@@ -107,19 +122,3 @@
 
 ---
 
-### **How It Works**
-
-1. **Login Process**:
-   - The user enters a username and password.
-   - If the credentials meet the validation criteria, the user is logged in and redirected to the Main Page.
-
-2. **Main Page Features**:
-   - Personalized welcome message.
-   - Task management tools (add, remove, edit, mark as complete).
-   - Logout functionality.
-
-3. **Task Management**:
-   - Each user can add, modify, and delete their tasks.
-   - Tasks are tied to the logged-in user, ensuring task separation between users.
-
----
