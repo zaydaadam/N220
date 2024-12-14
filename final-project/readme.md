@@ -1,4 +1,5 @@
 # Personal Task Manager
+A task manager app for managing personal tasks with user-specific login and task handling.
 # Final Project
 ## Github Link
 
